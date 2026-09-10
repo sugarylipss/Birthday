@@ -239,3 +239,49 @@ body {
         transform: translateY(-10px);
     }
 }
+
+.house-result {
+    display: none;
+    margin-top: 30px;
+    width: min(90vw, 500px);
+    padding: 25px;
+    box-sizing: border-box;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 12px;
+    animation: revealHouse 1s ease-out;
+}
+
+.house-result h2 {
+    font-family: Georgia, serif;
+    font-size: 28px;
+    margin-bottom: 15px;
+}
+
+.house-result p {
+    font-size: 17px;
+    line-height: 1.6;
+}
+
+.house-result button {
+    margin-top: 15px;
+    padding: 11px 22px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.12);
+    color: white;
+    font-family: Georgia, serif;
+    cursor: pointer;
+}
+
+@keyframes revealHouse {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
