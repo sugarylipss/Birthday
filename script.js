@@ -37,3 +37,24 @@ houseButtons.forEach(function(button) {
     });
 
 });
+
+const magic = document.querySelector("#magic");
+const continueButton = document.querySelector("#continueButton");
+const wandButton = document.querySelector("#wandButton");
+const magicResult = document.querySelector("#magicResult");
+const birthdayButton = document.querySelector("#birthdayButton");
+
+continueButton.addEventListener("click", function() {
+
+    sorting.style.display = "none";
+    magic.style.display = "flex";
+
+});
+
+wandButton.addEventListener("click", function() {
+
+    wandButton.style.transform = "rotate(-20deg) scale(1.2)";
+
+    magicResult.style.display = "block";
+
+});
