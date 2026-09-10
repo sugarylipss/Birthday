@@ -19,7 +19,24 @@ body {
 .owl {
     font-size: 80px;
     margin-bottom: 20px;
-    animation: float 3s ease-in-out infinite;
+    animation: owlEnter 2s ease-out forwards;
+}
+
+.owl span {
+    display: inline-block;
+    animation: float 3s ease-in-out 2s infinite;
+}
+
+@keyframes owlEnter {
+    from {
+        transform: translate(100vw, -50vh) rotate(20deg);
+        opacity: 0;
+    }
+
+    to {
+        transform: translate(0, 0) rotate(0);
+        opacity: 1;
+    }
 }
 
 .letter {
@@ -30,6 +47,22 @@ body {
     box-sizing: border-box;
     border-radius: 4px;
     box-shadow: 0 0 35px rgba(255, 220, 150, 0.35);
+
+    opacity: 0;
+    transform: translateY(20px);
+    animation: letterReveal 1.2s ease-out 2s forwards;
+}
+
+@keyframes letterReveal {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .letter h1 {
