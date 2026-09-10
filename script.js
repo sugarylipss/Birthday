@@ -117,3 +117,20 @@ openLetter.addEventListener("click", function() {
     letterContent.style.display = "block";
 
 });
+
+const dawn = document.querySelector("#dawn");
+const restartButton = document.querySelector("#restartButton");
+
+dawnButton.addEventListener("click", function() {
+
+    finalLetter.style.display = "none";
+    dawn.style.display = "flex";
+
+});
+
+restartButton.addEventListener("click", function() {
+
+    dawn.style.display = "none";
+    intro.style.display = "flex";
+
+});
