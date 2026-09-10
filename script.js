@@ -58,3 +58,38 @@ wandButton.addEventListener("click", function() {
     magicResult.style.display = "block";
 
 });
+
+const birthday = document.querySelector("#birthday");
+const revealText = document.querySelector("#revealText");
+const cakeScene = document.querySelector("#cakeScene");
+const cake = document.querySelector(".cake");
+const wishButton = document.querySelector("#wishButton");
+const candleHint = document.querySelector("#candleHint");
+
+birthdayButton.addEventListener("click", function() {
+
+    magic.style.display = "none";
+    birthday.style.display = "flex";
+
+    setTimeout(function() {
+        revealText.style.display = "none";
+        cakeScene.style.display = "block";
+    }, 7000);
+
+});
+
+cake.addEventListener("click", function() {
+
+    cake.style.transform = "scale(1.2)";
+
+    candleHint.textContent = "The candles have been blown out. ✨";
+
+    wishButton.style.display = "block";
+
+});
+
+wishButton.addEventListener("click", function() {
+
+    wishButton.textContent = "Wish granted. ...probably. 👀✨";
+
+});
