@@ -4,3 +4,69 @@ body {
     background: #050a1f;
     overflow: hidden;
 }
+.intro {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.owl {
+    font-size: 80px;
+    margin-bottom: 20px;
+    animation: float 3s ease-in-out infinite;
+}
+
+.letter {
+    background: #f4e4c1;
+    color: #241b12;
+    width: min(90%, 500px);
+    padding: 35px 25px;
+    box-sizing: border-box;
+    border-radius: 4px;
+    box-shadow: 0 0 35px rgba(255, 220, 150, 0.35);
+}
+
+.letter h1 {
+    font-size: 24px;
+    margin-top: 0;
+}
+
+.letter h2 {
+    font-size: 32px;
+    margin: 25px 0 15px;
+}
+
+.letter p {
+    font-size: 18px;
+}
+
+.letter button {
+    margin-top: 20px;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 5px;
+    background: #3b1f32;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.letter button:hover {
+    transform: scale(1.05);
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-12px);
+    }
+}
