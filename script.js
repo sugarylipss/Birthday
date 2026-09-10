@@ -1,19 +1,5 @@
 const intro = document.querySelector(".intro");
 const sorting = document.querySelector(".sorting");
-const letter = document.querySelector(".letter");
-const beginButton = document.querySelector(".letter button");
-
-
-/* Wait for parchment image to load */
-
-const parchment = new Image();
-
-parchment.onload = function() {
-    letter.classList.add("loaded");
-};
-
-parchment.src = "assets/parchment.png";
-
 
 /* Hogwarts Invitation */
 
