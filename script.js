@@ -88,12 +88,6 @@ cake.addEventListener("click", function() {
 
 });
 
-wishButton.addEventListener("click", function() {
-
-    wishButton.textContent = "Wish granted. ...probably. 👀✨";
-
-});
-
 const finalLetter = document.querySelector("#finalLetter");
 const openLetter = document.querySelector("#openLetter");
 const floatingLetter = document.querySelector("#floatingLetter");
