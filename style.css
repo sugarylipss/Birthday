@@ -70,3 +70,26 @@ body {
         transform: translateY(-12px);
     }
 }
+.intro::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+        radial-gradient(circle, white 1px, transparent 1px),
+        radial-gradient(circle, rgba(255,255,255,0.7) 1px, transparent 1px);
+    background-size: 90px 90px, 140px 140px;
+    background-position: 20px 30px, 70px 80px;
+    opacity: 0.5;
+    animation: stars 8s linear infinite;
+    pointer-events: none;
+}
+
+@keyframes stars {
+    from {
+        transform: translateY(0);
+    }
+
+    to {
+        transform: translateY(-90px);
+    }
+}
