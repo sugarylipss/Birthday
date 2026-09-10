@@ -93,3 +93,27 @@ wishButton.addEventListener("click", function() {
     wishButton.textContent = "Wish granted. ...probably. 👀✨";
 
 });
+
+const finalLetter = document.querySelector("#finalLetter");
+const openLetter = document.querySelector("#openLetter");
+const floatingLetter = document.querySelector("#floatingLetter");
+const letterContent = document.querySelector("#letterContent");
+const dawnButton = document.querySelector("#dawnButton");
+
+wishButton.addEventListener("click", function() {
+
+    wishButton.textContent = "Wish granted. ...probably. 👀✨";
+
+    setTimeout(function() {
+        birthday.style.display = "none";
+        finalLetter.style.display = "flex";
+    }, 1500);
+
+});
+
+openLetter.addEventListener("click", function() {
+
+    floatingLetter.style.display = "none";
+    letterContent.style.display = "block";
+
+});
