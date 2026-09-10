@@ -589,3 +589,144 @@ body {
         transform: scaleY(1);
     }
 }
+
+/* Dawn Ending */
+
+.dawn {
+    display: none;
+    min-height: 100vh;
+    box-sizing: border-box;
+    position: relative;
+    overflow: hidden;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    background:
+        linear-gradient(
+            to bottom,
+            #07112f 0%,
+            #263f70 45%,
+            #d89b82 78%,
+            #f2c79b 100%
+        );
+
+    color: white;
+}
+
+.dawn::before {
+    content: "";
+    position: absolute;
+    width: 350px;
+    height: 350px;
+    border-radius: 50%;
+
+    background: rgba(255, 210, 150, 0.35);
+
+    bottom: -170px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    filter: blur(20px);
+}
+
+.dawn-content {
+    position: relative;
+    z-index: 2;
+
+    width: min(88vw, 550px);
+    padding: 30px;
+    box-sizing: border-box;
+
+    animation: dawnAppear 2s ease-out;
+}
+
+.dawn-content p {
+    font-family: Georgia, serif;
+    font-size: 18px;
+    line-height: 1.7;
+
+    opacity: 0;
+    animation: dawnText 1s ease forwards;
+}
+
+.dawn-content p:nth-child(1) {
+    animation-delay: 0.5s;
+}
+
+.dawn-content p:nth-child(2) {
+    animation-delay: 1.5s;
+}
+
+.dawn-content p:nth-child(3) {
+    animation-delay: 2.5s;
+}
+
+.dawn-content p:nth-child(4) {
+    animation-delay: 3.5s;
+}
+
+.dawn-content p:nth-child(5) {
+    animation-delay: 4.5s;
+}
+
+.dawn-content h1 {
+    margin-top: 35px;
+
+    font-family: Georgia, serif;
+    font-size: 32px;
+
+    opacity: 0;
+    animation: dawnText 1.5s ease 5.5s forwards;
+}
+
+#restartButton {
+    margin-top: 30px;
+
+    padding: 12px 24px;
+
+    border: 1px solid rgba(255,255,255,0.6);
+    border-radius: 5px;
+
+    background: rgba(0,0,0,0.15);
+
+    color: white;
+
+    font-family: Georgia, serif;
+    font-size: 15px;
+
+    cursor: pointer;
+
+    opacity: 0;
+    animation: dawnText 1s ease 7s forwards;
+}
+
+#restartButton:hover {
+    transform: scale(1.05);
+}
+
+@keyframes dawnAppear {
+
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+
+}
+
+@keyframes dawnText {
+
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
