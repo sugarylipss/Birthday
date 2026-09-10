@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
 
+
 body {
     margin: 0;
     min-height: 100vh;
@@ -7,10 +8,12 @@ body {
     overflow: hidden;
 }
 
+
+/* Hogwarts Invitation */
+
 .intro {
     min-height: 100vh;
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
     position: relative;
@@ -24,51 +27,24 @@ body {
     background-repeat: no-repeat;
 }
 
-.owl {
-    width: 180px;
-    height: 130px;
-    margin-bottom: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    animation: owlEnter 2s ease-out forwards;
-}
 
-.owl span {
-    display: inline-block;
-    font-size: 100px;
-    filter:
-        drop-shadow(0 0 8px rgba(255, 220, 150, 0.35))
-        drop-shadow(0 8px 12px rgba(0, 0, 0, 0.5));
-    animation: float 3s ease-in-out 2s infinite;
-}
-
-@keyframes owlEnter {
-    from {
-        transform: translate(100vw, -50vh) rotate(20deg);
-        opacity: 0;
-    }
-
-    to {
-        transform: translate(0, 0) rotate(0);
-        opacity: 1;
-    }
-}
+/* Parchment */
 
 .letter {
     background: url("assets/parchment.png") center / 100% 100% no-repeat;
+
     color: #241b12;
+
     width: min(88vw, 420px);
     aspect-ratio: 2 / 3;
+
     padding: 145px 45px 100px;
+
     box-sizing: border-box;
 
     opacity: 0;
-    transform: translateY(20px);
 
-    animation:
-        letterReveal 1.2s ease-out 2s forwards,
-        floatLetter 4s ease-in-out 3.2s infinite;
+    transform: translateY(20px);
 
     display: flex;
     flex-direction: column;
@@ -76,7 +52,18 @@ body {
     text-align: center;
 }
 
+
+/* Reveal parchment only after image has loaded */
+
+.letter.loaded {
+    animation:
+        letterReveal 1.2s ease-out forwards,
+        floatLetter 4s ease-in-out 1.2s infinite;
+}
+
+
 @keyframes letterReveal {
+
     from {
         opacity: 0;
         transform: translateY(20px);
@@ -86,7 +73,9 @@ body {
         opacity: 1;
         transform: translateY(0);
     }
+
 }
+
 
 .letter h1 {
     font-family: 'Great Vibes', cursive;
@@ -95,11 +84,13 @@ body {
     margin: 0 0 25px;
 }
 
+
 .letter h2 {
     font-family: 'Great Vibes', cursive;
     font-size: 28px;
     margin: 0 0 20px;
 }
+
 
 .letter p {
     font-family: Georgia, serif;
@@ -108,362 +99,32 @@ body {
     margin: 8px 0;
 }
 
+
 .letter button {
     margin-top: 20px;
+
     padding: 11px 20px;
+
     border: 1px solid #5a3a1f;
     border-radius: 3px;
+
     background: #3b1f32;
     color: #f4e4c1;
+
     font-family: Georgia, serif;
     font-size: 14px;
+
     cursor: pointer;
 }
+
 
 .letter button:hover {
     transform: scale(1.05);
 }
 
-@keyframes float {
-    0%, 100% {
-        transform: translateY(0);
-    }
 
-    50% {
-        transform: translateY(-12px);
-    }
-}
+@keyframes floatLetter {
 
-.intro::after {
-    content: "";
-    position: absolute;
-    width: 450px;
-    height: 450px;
-    background: radial-gradient(
-        circle,
-        rgba(120, 180, 255, 0.18),
-        transparent 70%
-    );
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    pointer-events: none;
-}
-
-.intro > * {
-    position: relative;
-    z-index: 1;
-}
-
-
-/* Sorting Hat scene */
-
-.sorting {
-    display: none;
-    min-height: 100vh;
-    box-sizing: border-box;
-    padding: 40px 20px;
-    background: #050a1f;
-    color: white;
-    text-align: center;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-}
-
-.hat {
-    font-size: 90px;
-    margin-bottom: 20px;
-    animation: hatFloat 3s ease-in-out infinite;
-}
-
-.sorting h1 {
-    font-family: Georgia, serif;
-    font-size: 32px;
-    margin: 10px 0;
-}
-
-.sorting p {
-    font-size: 18px;
-    margin: 6px 0;
-}
-
-.sorting h2 {
-    font-family: Georgia, serif;
-    font-size: 24px;
-    margin: 15px 0 30px;
-}
-
-.houses {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 15px;
-    width: min(90vw, 420px);
-}
-
-.houses button {
-    padding: 18px 10px;
-    border: 1px solid rgba(255, 255, 255, 0.4);
-    border-radius: 8px;
-    background: rgba(255, 255, 255, 0.08);
-    color: white;
-    font-size: 16px;
-    cursor: pointer;
-}
-
-.houses button:hover {
-    transform: scale(1.05);
-}
-
-@keyframes hatFloat {
-    0%, 100% {
-        transform: translateY(0);
-    }
-
-    50% {
-        transform: translateY(-10px);
-    }
-}
-
-.house-result {
-    display: none;
-    margin-top: 30px;
-    width: min(90vw, 500px);
-    padding: 25px;
-    box-sizing: border-box;
-    background: rgba(255, 255, 255, 0.08);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    border-radius: 12px;
-    animation: revealHouse 1s ease-out;
-}
-
-.house-result h2 {
-    font-family: Georgia, serif;
-    font-size: 28px;
-    margin-bottom: 15px;
-}
-
-.house-result p {
-    font-size: 17px;
-    line-height: 1.6;
-}
-
-.house-result button {
-    margin-top: 15px;
-    padding: 11px 22px;
-    border: 1px solid rgba(255, 255, 255, 0.5);
-    border-radius: 5px;
-    background: rgba(255, 255, 255, 0.12);
-    color: white;
-    font-family: Georgia, serif;
-    cursor: pointer;
-}
-
-@keyframes revealHouse {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-
-/* Magical Challenge */
-
-.magic {
-    display: none;
-    min-height: 100vh;
-    box-sizing: border-box;
-    padding: 40px 20px;
-    background: #050a1f;
-    color: white;
-    text-align: center;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    position: relative;
-    overflow: hidden;
-}
-
-.magic h1 {
-    font-family: Georgia, serif;
-    font-size: 28px;
-    max-width: 500px;
-}
-
-.magic p {
-    font-size: 18px;
-}
-
-#wandButton {
-    margin-top: 30px;
-    background: transparent;
-    border: none;
-    font-size: 80px;
-    cursor: pointer;
-    transition: transform 0.3s;
-}
-
-#wandButton:hover {
-    transform: rotate(-15deg) scale(1.1);
-}
-
-#magicResult {
-    display: none;
-    margin-top: 35px;
-    animation: magicReveal 1.2s ease-out;
-}
-
-#magicResult h2 {
-    font-family: Georgia, serif;
-    font-size: 25px;
-}
-
-#magicResult button {
-    margin-top: 15px;
-    padding: 11px 22px;
-    border: 1px solid rgba(255,255,255,0.5);
-    border-radius: 5px;
-    background: rgba(255,255,255,0.1);
-    color: white;
-    font-family: Georgia, serif;
-    cursor: pointer;
-}
-
-@keyframes magicReveal {
-    from {
-        opacity: 0;
-        transform: scale(0.8);
-    }
-
-    to {
-        opacity: 1;
-        transform: scale(1);
-    }
-}
-
-
-/* Birthday Reveal */
-
-.birthday {
-    display: none;
-    min-height: 100vh;
-    box-sizing: border-box;
-    padding: 40px 20px;
-    background: #050a1f;
-    color: white;
-    text-align: center;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    overflow: hidden;
-}
-
-#revealText {
-    font-family: Georgia, serif;
-    font-size: 22px;
-}
-
-#revealText p {
-    opacity: 0;
-    animation: revealLine 1s ease forwards;
-}
-
-#revealText p:nth-child(1) {
-    animation-delay: 0.5s;
-}
-
-#revealText p:nth-child(2) {
-    animation-delay: 1.8s;
-}
-
-#revealText p:nth-child(3) {
-    animation-delay: 3.1s;
-}
-
-#revealText p:nth-child(4) {
-    animation-delay: 4.4s;
-}
-
-#revealText h2 {
-    opacity: 0;
-    animation: revealBig 1s ease 5.5s forwards;
-    font-size: 32px;
-}
-
-@keyframes revealLine {
-    from {
-        opacity: 0;
-        transform: translateY(10px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes revealBig {
-    from {
-        opacity: 0;
-        transform: scale(0.7);
-    }
-
-    to {
-        opacity: 1;
-        transform: scale(1);
-    }
-}
-
-#cakeScene {
-    display: none;
-    animation: cakeAppear 1.2s ease-out;
-}
-
-#cakeScene h1 {
-    font-family: Georgia, serif;
-    font-size: 30px;
-}
-
-#cakeScene p {
-    font-size: 18px;
-}
-
-.cake {
-    font-size: 120px;
-    margin: 25px 0;
-    cursor: pointer;
-    animation: cakeFloat 3s ease-in-out infinite;
-}
-
-#wishButton {
-    display: none;
-    padding: 12px 24px;
-    border: 1px solid rgba(255,255,255,0.5);
-    border-radius: 5px;
-    background: rgba(255,255,255,0.1);
-    color: white;
-    font-family: Georgia, serif;
-    cursor: pointer;
-}
-
-@keyframes cakeAppear {
-    from {
-        opacity: 0;
-        transform: scale(0.5);
-    }
-
-    to {
-        opacity: 1;
-        transform: scale(1);
-    }
-}
-
-@keyframes cakeFloat {
     0%, 100% {
         transform: translateY(0);
     }
@@ -471,6 +132,517 @@ body {
     50% {
         transform: translateY(-8px);
     }
+
+}
+
+
+/* Magical Glow */
+
+.intro::after {
+    content: "";
+
+    position: absolute;
+
+    width: 450px;
+    height: 450px;
+
+    background: radial-gradient(
+        circle,
+        rgba(120, 180, 255, 0.18),
+        transparent 70%
+    );
+
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    pointer-events: none;
+}
+
+
+.intro > * {
+    position: relative;
+    z-index: 1;
+}
+
+
+/* Sorting Hat Scene */
+
+.sorting {
+    display: none;
+
+    min-height: 100vh;
+
+    box-sizing: border-box;
+
+    padding: 40px 20px;
+
+    background: #050a1f;
+
+    color: white;
+
+    text-align: center;
+
+    align-items: center;
+    justify-content: center;
+
+    flex-direction: column;
+}
+
+
+.hat {
+    font-size: 90px;
+
+    margin-bottom: 20px;
+
+    animation: hatFloat 3s ease-in-out infinite;
+}
+
+
+.sorting h1 {
+    font-family: Georgia, serif;
+
+    font-size: 32px;
+
+    margin: 10px 0;
+}
+
+
+.sorting p {
+    font-size: 18px;
+
+    margin: 6px 0;
+}
+
+
+.sorting h2 {
+    font-family: Georgia, serif;
+
+    font-size: 24px;
+
+    margin: 15px 0 30px;
+}
+
+
+.houses {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 15px;
+
+    width: min(90vw, 420px);
+}
+
+
+.houses button {
+    padding: 18px 10px;
+
+    border: 1px solid rgba(255, 255, 255, 0.4);
+
+    border-radius: 8px;
+
+    background: rgba(255, 255, 255, 0.08);
+
+    color: white;
+
+    font-size: 16px;
+
+    cursor: pointer;
+
+    transition: transform 0.2s ease;
+}
+
+
+.houses button:hover {
+    transform: scale(1.05);
+}
+
+
+@keyframes hatFloat {
+
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+
+}
+
+
+/* House Result */
+
+.house-result {
+    display: none;
+
+    margin-top: 30px;
+
+    width: min(90vw, 500px);
+
+    padding: 25px;
+
+    box-sizing: border-box;
+
+    background: rgba(255, 255, 255, 0.08);
+
+    border: 1px solid rgba(255, 255, 255, 0.3);
+
+    border-radius: 12px;
+
+    animation: revealHouse 1s ease-out;
+}
+
+
+.house-result h2 {
+    font-family: Georgia, serif;
+
+    font-size: 28px;
+
+    margin-bottom: 15px;
+}
+
+
+.house-result p {
+    font-size: 17px;
+
+    line-height: 1.6;
+}
+
+
+.house-result button {
+    margin-top: 15px;
+
+    padding: 11px 22px;
+
+    border: 1px solid rgba(255, 255, 255, 0.5);
+
+    border-radius: 5px;
+
+    background: rgba(255, 255, 255, 0.12);
+
+    color: white;
+
+    font-family: Georgia, serif;
+
+    cursor: pointer;
+}
+
+
+@keyframes revealHouse {
+
+    from {
+        opacity: 0;
+
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform: translateY(0);
+    }
+
+}
+
+
+/* Magical Challenge */
+
+.magic {
+    display: none;
+
+    min-height: 100vh;
+
+    box-sizing: border-box;
+
+    padding: 40px 20px;
+
+    background: #050a1f;
+
+    color: white;
+
+    text-align: center;
+
+    align-items: center;
+    justify-content: center;
+
+    flex-direction: column;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+
+.magic h1 {
+    font-family: Georgia, serif;
+
+    font-size: 28px;
+
+    max-width: 500px;
+}
+
+
+.magic p {
+    font-size: 18px;
+}
+
+
+#wandButton {
+    margin-top: 30px;
+
+    background: transparent;
+
+    border: none;
+
+    font-size: 80px;
+
+    cursor: pointer;
+
+    transition: transform 0.3s;
+}
+
+
+#wandButton:hover {
+    transform: rotate(-15deg) scale(1.1);
+}
+
+
+#magicResult {
+    display: none;
+
+    margin-top: 35px;
+
+    animation: magicReveal 1.2s ease-out;
+}
+
+
+#magicResult h2 {
+    font-family: Georgia, serif;
+
+    font-size: 25px;
+}
+
+
+#magicResult button {
+    margin-top: 15px;
+
+    padding: 11px 22px;
+
+    border: 1px solid rgba(255,255,255,0.5);
+
+    border-radius: 5px;
+
+    background: rgba(255,255,255,0.1);
+
+    color: white;
+
+    font-family: Georgia, serif;
+
+    cursor: pointer;
+}
+
+
+@keyframes magicReveal {
+
+    from {
+        opacity: 0;
+
+        transform: scale(0.8);
+    }
+
+    to {
+        opacity: 1;
+
+        transform: scale(1);
+    }
+
+}
+
+
+/* Birthday Reveal */
+
+.birthday {
+    display: none;
+
+    min-height: 100vh;
+
+    box-sizing: border-box;
+
+    padding: 40px 20px;
+
+    background: #050a1f;
+
+    color: white;
+
+    text-align: center;
+
+    align-items: center;
+    justify-content: center;
+
+    flex-direction: column;
+
+    overflow: hidden;
+}
+
+
+#revealText {
+    font-family: Georgia, serif;
+
+    font-size: 22px;
+}
+
+
+#revealText p {
+    opacity: 0;
+
+    animation: revealLine 1s ease forwards;
+}
+
+
+#revealText p:nth-child(1) {
+    animation-delay: 0.5s;
+}
+
+
+#revealText p:nth-child(2) {
+    animation-delay: 1.8s;
+}
+
+
+#revealText p:nth-child(3) {
+    animation-delay: 3.1s;
+}
+
+
+#revealText p:nth-child(4) {
+    animation-delay: 4.4s;
+}
+
+
+#revealText h2 {
+    opacity: 0;
+
+    animation: revealBig 1s ease 5.5s forwards;
+
+    font-size: 32px;
+}
+
+
+@keyframes revealLine {
+
+    from {
+        opacity: 0;
+
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform: translateY(0);
+    }
+
+}
+
+
+@keyframes revealBig {
+
+    from {
+        opacity: 0;
+
+        transform: scale(0.7);
+    }
+
+    to {
+        opacity: 1;
+
+        transform: scale(1);
+    }
+
+}
+
+
+/* Cake */
+
+#cakeScene {
+    display: none;
+
+    animation: cakeAppear 1.2s ease-out;
+}
+
+
+#cakeScene h1 {
+    font-family: Georgia, serif;
+
+    font-size: 30px;
+}
+
+
+#cakeScene p {
+    font-size: 18px;
+}
+
+
+.cake {
+    font-size: 120px;
+
+    margin: 25px 0;
+
+    cursor: pointer;
+
+    animation: cakeFloat 3s ease-in-out infinite;
+}
+
+
+#wishButton {
+    display: none;
+
+    padding: 12px 24px;
+
+    border: 1px solid rgba(255,255,255,0.5);
+
+    border-radius: 5px;
+
+    background: rgba(255,255,255,0.1);
+
+    color: white;
+
+    font-family: Georgia, serif;
+
+    cursor: pointer;
+}
+
+
+@keyframes cakeAppear {
+
+    from {
+        opacity: 0;
+
+        transform: scale(0.5);
+    }
+
+    to {
+        opacity: 1;
+
+        transform: scale(1);
+    }
+
+}
+
+
+@keyframes cakeFloat {
+
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+
 }
 
 
@@ -478,86 +650,140 @@ body {
 
 .final-letter {
     display: none;
+
     min-height: 100vh;
+
     box-sizing: border-box;
+
     padding: 40px 20px;
+
     background: #050a1f;
+
     color: white;
+
     text-align: center;
+
     align-items: center;
     justify-content: center;
+
     flex-direction: column;
+
     overflow: hidden;
 }
 
+
 #floatingLetter {
     width: min(85vw, 400px);
+
     padding: 35px 25px;
+
     box-sizing: border-box;
+
     background: #e8d2a8;
+
     color: #241b12;
+
     border-radius: 4px;
+
     box-shadow: 0 15px 40px rgba(0,0,0,0.5);
+
     animation: letterFloat 3s ease-in-out infinite;
 }
 
+
 #floatingLetter p {
     font-family: Georgia, serif;
+
     font-size: 18px;
 }
 
+
 #openLetter {
     margin-top: 15px;
+
     padding: 11px 22px;
+
     border: 1px solid #5a3a1f;
+
     background: #3b1f32;
+
     color: #f4e4c1;
+
     font-family: Georgia, serif;
+
     cursor: pointer;
 }
+
 
 #letterContent {
     display: none;
+
     width: min(88vw, 550px);
+
     max-height: 85vh;
+
     overflow-y: auto;
+
     padding: 35px 30px;
+
     box-sizing: border-box;
+
     background: #e8d2a8;
+
     color: #241b12;
+
     border-radius: 4px;
+
     box-shadow: 0 15px 40px rgba(0,0,0,0.6);
+
     animation: unfoldLetter 1s ease-out;
 }
 
+
 #letterContent h2 {
     font-family: Georgia, serif;
+
     margin-top: 0;
 }
 
+
 #letterContent p {
     font-family: Georgia, serif;
+
     font-size: 16px;
+
     line-height: 1.7;
+
     text-align: left;
 }
 
+
 #letterContent .signature {
     text-align: right;
+
     margin-top: 30px;
 }
 
+
 #dawnButton {
     margin-top: 20px;
+
     padding: 11px 22px;
+
     border: 1px solid #5a3a1f;
+
     background: #3b1f32;
+
     color: #f4e4c1;
+
     font-family: Georgia, serif;
+
     cursor: pointer;
 }
 
+
 @keyframes letterFloat {
+
     0%, 100% {
         transform: translateY(0) rotate(-1deg);
     }
@@ -565,18 +791,24 @@ body {
     50% {
         transform: translateY(-12px) rotate(1deg);
     }
+
 }
 
+
 @keyframes unfoldLetter {
+
     from {
         opacity: 0;
+
         transform: scaleY(0.1);
     }
 
     to {
         opacity: 1;
+
         transform: scaleY(1);
     }
+
 }
 
 
@@ -584,12 +816,18 @@ body {
 
 .dawn {
     display: none;
+
     min-height: 100vh;
+
     box-sizing: border-box;
+
     position: relative;
+
     overflow: hidden;
+
     align-items: center;
     justify-content: center;
+
     text-align: center;
 
     background:
@@ -604,71 +842,94 @@ body {
     color: white;
 }
 
+
 .dawn::before {
     content: "";
+
     position: absolute;
+
     width: 350px;
     height: 350px;
+
     border-radius: 50%;
 
     background: rgba(255, 210, 150, 0.35);
 
     bottom: -170px;
+
     left: 50%;
+
     transform: translateX(-50%);
 
     filter: blur(20px);
 }
 
+
 .dawn-content {
     position: relative;
+
     z-index: 2;
 
     width: min(88vw, 550px);
+
     padding: 30px;
+
     box-sizing: border-box;
 
     animation: dawnAppear 2s ease-out;
 }
 
+
 .dawn-content p {
     font-family: Georgia, serif;
+
     font-size: 18px;
+
     line-height: 1.7;
 
     opacity: 0;
+
     animation: dawnText 1s ease forwards;
 }
+
 
 .dawn-content p:nth-child(1) {
     animation-delay: 0.5s;
 }
 
+
 .dawn-content p:nth-child(2) {
     animation-delay: 1.5s;
 }
+
 
 .dawn-content p:nth-child(3) {
     animation-delay: 2.5s;
 }
 
+
 .dawn-content p:nth-child(4) {
     animation-delay: 3.5s;
 }
+
 
 .dawn-content p:nth-child(5) {
     animation-delay: 4.5s;
 }
 
+
 .dawn-content h1 {
     margin-top: 35px;
 
     font-family: Georgia, serif;
+
     font-size: 32px;
 
     opacity: 0;
+
     animation: dawnText 1.5s ease 5.5s forwards;
 }
+
 
 #restartButton {
     margin-top: 30px;
@@ -676,6 +937,7 @@ body {
     padding: 12px 24px;
 
     border: 1px solid rgba(255,255,255,0.6);
+
     border-radius: 5px;
 
     background: rgba(0,0,0,0.15);
@@ -683,19 +945,24 @@ body {
     color: white;
 
     font-family: Georgia, serif;
+
     font-size: 15px;
 
     cursor: pointer;
 
     opacity: 0;
+
     animation: dawnText 1s ease 7s forwards;
 }
+
 
 #restartButton:hover {
     transform: scale(1.05);
 }
 
+
 @keyframes dawnAppear {
+
     from {
         opacity: 0;
     }
@@ -703,16 +970,22 @@ body {
     to {
         opacity: 1;
     }
+
 }
 
+
 @keyframes dawnText {
+
     from {
         opacity: 0;
+
         transform: translateY(10px);
     }
 
     to {
         opacity: 1;
+
         transform: translateY(0);
     }
+
 }
