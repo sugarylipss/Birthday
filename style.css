@@ -17,9 +17,22 @@ body {
 }
 
 .owl {
-    font-size: 80px;
+    width: 180px;
+    height: 130px;
     margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     animation: owlEnter 2s ease-out forwards;
+}
+
+.owl span {
+    display: inline-block;
+    font-size: 100px;
+    filter:
+        drop-shadow(0 0 8px rgba(255, 220, 150, 0.35))
+        drop-shadow(0 8px 12px rgba(0, 0, 0, 0.5));
+    animation: float 3s ease-in-out 2s infinite;
 }
 
 .owl span {
