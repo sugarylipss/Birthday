@@ -170,3 +170,72 @@ body {
     position: relative;
     z-index: 1;
 }
+
+/* Sorting Hat scene */
+
+.sorting {
+    display: none;
+    min-height: 100vh;
+    box-sizing: border-box;
+    padding: 40px 20px;
+    background: #050a1f;
+    color: white;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.hat {
+    font-size: 90px;
+    margin-bottom: 20px;
+    animation: hatFloat 3s ease-in-out infinite;
+}
+
+.sorting h1 {
+    font-family: Georgia, serif;
+    font-size: 32px;
+    margin: 10px 0;
+}
+
+.sorting p {
+    font-size: 18px;
+    margin: 6px 0;
+}
+
+.sorting h2 {
+    font-family: Georgia, serif;
+    font-size: 24px;
+    margin: 15px 0 30px;
+}
+
+.houses {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    width: min(90vw, 420px);
+}
+
+.houses button {
+    padding: 18px 10px;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.08);
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.houses button:hover {
+    transform: scale(1.05);
+}
+
+@keyframes hatFloat {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
