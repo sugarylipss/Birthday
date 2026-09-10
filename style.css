@@ -359,3 +359,128 @@ body {
         transform: scale(1);
     }
 }
+
+/* Birthday Reveal */
+
+.birthday {
+    display: none;
+    min-height: 100vh;
+    box-sizing: border-box;
+    padding: 40px 20px;
+    background: #050a1f;
+    color: white;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+#revealText {
+    font-family: Georgia, serif;
+    font-size: 22px;
+}
+
+#revealText p {
+    opacity: 0;
+    animation: revealLine 1s ease forwards;
+}
+
+#revealText p:nth-child(1) {
+    animation-delay: 0.5s;
+}
+
+#revealText p:nth-child(2) {
+    animation-delay: 1.8s;
+}
+
+#revealText p:nth-child(3) {
+    animation-delay: 3.1s;
+}
+
+#revealText p:nth-child(4) {
+    animation-delay: 4.4s;
+}
+
+#revealText h2 {
+    opacity: 0;
+    animation: revealBig 1s ease 5.5s forwards;
+    font-size: 32px;
+}
+
+@keyframes revealLine {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes revealBig {
+    from {
+        opacity: 0;
+        transform: scale(0.7);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+#cakeScene {
+    display: none;
+    animation: cakeAppear 1.2s ease-out;
+}
+
+#cakeScene h1 {
+    font-family: Georgia, serif;
+    font-size: 30px;
+}
+
+#cakeScene p {
+    font-size: 18px;
+}
+
+.cake {
+    font-size: 120px;
+    margin: 25px 0;
+    cursor: pointer;
+    animation: cakeFloat 3s ease-in-out infinite;
+}
+
+#wishButton {
+    padding: 12px 24px;
+    border: 1px solid rgba(255,255,255,0.5);
+    border-radius: 5px;
+    background: rgba(255,255,255,0.1);
+    color: white;
+    font-family: Georgia, serif;
+    cursor: pointer;
+}
+
+@keyframes cakeAppear {
+    from {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes cakeFloat {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+}
